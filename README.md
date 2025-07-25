@@ -1,1 +1,1 @@
-Mini chatting app using mongodb,express,node.js,js,ejs,css
+Mini chatting app using mongodb,express,node.js,js,ejs,css and also handled error using custom made error handler middleware
