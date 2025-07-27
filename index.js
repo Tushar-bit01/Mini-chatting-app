@@ -86,7 +86,7 @@ app.put("/chats/:id",asyncWrap(async(req,res)=>{
     res.redirect("/chats"); 
 }));
 //delete route
-app.delete("/chats/:id",async(req,res)=>{
+app.delete("/chats/:id",async(req,res,next)=>{
     try{
         let {id}=req.params;
     let deletechat=await Chat.findByIdAndDelete(id);
@@ -105,7 +105,7 @@ app.use((err,req,res,next)=>{
     console.log("error aagya");
     console.log(err.name);
     if(err.name==="ValidationError"){
-        handleValidationErr(err);
+        err=handleValidationErr(err);
     }
     console.log(err.message);
     next(err);
